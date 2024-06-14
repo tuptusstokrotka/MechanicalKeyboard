@@ -5,3 +5,5 @@ LTO_ENABLE 				= yes
 MOUSEKEY_ENABLE 		= no
 COMBO_ENABLE 			= yes
 KEY_OVERRIDE_ENABLE 	= yes
+OLED_ENABLE				= yes
+ENCODER_ENABLE			= yes

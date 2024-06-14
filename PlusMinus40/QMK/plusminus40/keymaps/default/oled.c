@@ -1,4 +1,4 @@
-// Copyright 2022 Julian Tarczynski 
+// Copyright 2022 Julian Tarczynski
 // PlusMinus40 based on mochi40
 #include QMK_KEYBOARD_H
 #include "variables.h"
@@ -31,6 +31,7 @@ uint8_t getHeight(int x) {
             double currentHeight = INITIAL_HEIGHT - 0.5 * t * t;
             // Map this height to the screen coordinate, inverting since 0 is max height
             return 51 - (currentHeight / INITIAL_HEIGHT * 51);
+			//TODO do somethign later
         }
         totalTime += timeToFall;
         height *= LOSS_FACTOR;
@@ -50,16 +51,16 @@ bool oled_task_user(void) {
 	if (timer_elapsed32(sleep_timer) > OLED_SLEEP) {
 		oled_off();
 		return 0;
-	}    
-	
+	}
+
 	// Frame update time passed -> draw new frame
 	if (timer_elapsed32(frame_timer) > FRAME_DURATION) {
 		frame_timer = timer_read32();			// Get Last frame millis
-		
+
 		// Prepare OLED to render
 		oled_clear();							// Turn on OLED and clear
-		oled_on();								
-		
+		oled_on();
+
 		// Draw each element on the screen
 		render_doge();
 		render_ball();
@@ -69,10 +70,10 @@ bool oled_task_user(void) {
 			default:
 			case 0:
 				// Render WPM
-				oled_write(get_u8_str(get_current_wpm(), '0'), false);   
+				oled_write(get_u8_str(get_current_wpm(), '0'), false);
 				break;
 			case 1:
-				// Render volume control	
+				// Render volume control
 				render_vol();
 				break;
 			case 2:
@@ -80,7 +81,7 @@ bool oled_task_user(void) {
 				render_caps();
 				break;
 		}
-		//oled_write(get_u8_str(get_highest_layer(layer_state), '0'), false);   
+		//oled_write(get_u8_str(get_highest_layer(layer_state), '0'), false);
 	}
     return 0;
 }
@@ -104,7 +105,7 @@ static void render_ball(void){
 	}
 	if(ball_frame < TOTAL_FRAMES)				// animate until the end of ball frames
 		ball_frame++;
-		
+
 
 	uint8_t x = (ball_frame % 80 + 25) * 1.05; 	// strech X axis to whole OLED
 	//uint8_t y = getHeight(x);

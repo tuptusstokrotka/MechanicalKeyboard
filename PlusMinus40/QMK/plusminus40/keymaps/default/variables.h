@@ -1,15 +1,22 @@
-// Copyright 2022 Julian Tarczynski 
+// Copyright 2022 Julian Tarczynski
 // PlusMinus40 based on mochi40
 #pragma once
 
 // Define Layers depends on L / R space press
 enum keyboard_layers {
-	_MAIN,		
-	_LEFT,		
-	_RIGHT,		
-	_BOTH,		
+	_MAIN,
+	_LEFT,
+	_RIGHT,
+	_BOTH,
 };
-#define __x__ KC_NO							// No functionality - NO HARDWARE CONNECTION
+
+enum custom_keycodes {
+	M0 = SAFE_RANGE,
+    M1,
+    M2,
+    M3,
+};
+
 // custom combinations
 #define L_SPACE LT(1,KC_SPC)
 #define R_SPACE LT(2,KC_SPC)
@@ -58,34 +65,34 @@ static uint8_t	ball_frame = 0;				// throwing ball frames
 // Dog Picture Pixels
 static const char PROGMEM doge_head[] = {
 	0,  0,  0,  0,  0,  0,  0,  0,
-	0,  0,  0,  0,  0,  0,224, 28,  
-	2,  5,  2, 36,  4,  4,  2,169, 
+	0,  0,  0,  0,  0,  0,224, 28,
+	2,  5,  2, 36,  4,  4,  2,169,
 	30,224,  0,  0,  0,  0,  0,  0
 };
 static const char PROGMEM doge_body[3][32] = {
 	{//tail left
-	0,  0,  0,  0,  0,224,144,  8, 
+	0,  0,  0,  0,  0,224,144,  8,
 	24, 96, 16,  8,  4,  3,  0,  0,
 	0,  0,  0,  0,  0,  2, 14,130,
 	124,  3,  0,  0,  0,  0,  0,  0
 	},
 	{//tail middle
-	0,  0, 12, 52, 68,136,144, 32, 
+	0,  0, 12, 52, 68,136,144, 32,
 	32, 96, 16,  8,  4,  3,  0,  0,
 	0,  0,  0,  0,  0,  2, 14,130,
 	124,  3,  0,  0,  0,  0,  0,  0
 	},
 	{//tail right
-	0, 96, 80, 80,144,144,160, 32, 
+	0, 96, 80, 80,144,144,160, 32,
 	32, 96, 16,  8,  4,  3,  0,  0,
 	0,  0,  0,  0,  0,  2, 14,130,
 	124,  3,  0,  0,  0,  0,  0,  0
 	}
 };
-static const char PROGMEM doge_legs[] = {   
-	0,  0,  0,  0,  0,  0,  1,  2,  
-	4, 12, 16, 16, 32, 32, 32, 40, 
-	62, 28, 32, 32, 62, 15, 17, 31,  
+static const char PROGMEM doge_legs[] = {
+	0,  0,  0,  0,  0,  0,  1,  2,
+	4, 12, 16, 16, 32, 32, 32, 40,
+	62, 28, 32, 32, 62, 15, 17, 31,
 	0,  0,  0,  0,  0,  0,  0,  0
 };
 
@@ -111,9 +118,9 @@ const uint8_t ball_height[] = {
 	48, 45, 43, 41, 40, 39, 38,						//up
 	38, 39, 40, 41, 43, 45, 47, 49, 51,				//down
 
-	50, 49, 49, 48, 48, 							//up	
+	50, 49, 49, 48, 48, 							//up
 	49, 49, 49, 50, 51, 51, 						//down
 
 	50, 49, 50, 51, 50, 51, 51, 50, 49, 50, 51, 50,	//up
-	51, 50, 51, 50, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51 
+	51, 50, 51, 50, 50, 51, 51, 51, 51, 51, 51, 51, 51, 51
 	};
