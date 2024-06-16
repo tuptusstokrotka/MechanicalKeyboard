@@ -9,6 +9,12 @@
 #ifdef ENCODER_ENABLE
 	#include "encoder.c"
 #endif
+#ifdef COMBO_ENABLE
+	#include "combo.c"
+#endif
+#ifdef KEY_OVERRIDE_ENABLE
+	#include "override.c"
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -75,10 +81,10 @@ KC_TRNS,      KC_TRNS,    KC_TRNS,                KC_TRNS,                      
    * `-------------------------------------------------------------------------------------'   `----'
    */
 [_BOTH] = LAYOUT_split_space( /* BOTH */
-KC_NO,        KC_NO,      KC_NO,      KC_NO,      L_DESKTOP,  L_MONITOR,  R_MONITOR,  R_DESKTOP,   KC_NO,     KC_NO,      KC_NO,      KC_NO,
-KC_NO,        KC_NO,      KC_NO,      KC_NO,      L_SNAP,     D_SNAP,     U_SNAP,     R_SNAP,      KC_NO,     KC_NO,      KC_NO,      KC_NO,
+KC_NO,        KC_NO,      KC_NO,      KC_NO,      L_DESKTOP,  L_MONITOR,  R_MONITOR,  R_DESKTOP,   KC_NO,     KC_NO,      KC_NO,      FLUX_EN,
+M0,           M1,         KC_NO,      KC_NO,      L_SNAP,     D_SNAP,     U_SNAP,     R_SNAP,      KC_NO,     KC_NO,      M2,         M3,
 KC_NO,        KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_NO,     KC_NO,      KC_NO,      KC_NO,
-KC_TRNS,      KC_TRNS,    KC_TRNS,                KC_NO,                              KC_NO,                  KC_NO,      KC_NO,      KC_NO,           KC_NO),
+KC_TRNS,      KC_TRNS,    KC_TRNS,                KC_NO,                              KC_NO,                  KC_NO,      KC_NO,      KC_NO,           KC_F13),
 };
 
 // Enable _BOTH layer only when 2 buttons pressed
@@ -91,6 +97,39 @@ layer_state_t layer_state_set_user(layer_state_t state){
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed){               // Key was pressed
     sleep_timer = timer_read32();
+
+    switch(keycode){
+      case KC_F13:                          // Assign toy animation to F13
+        toy_action=!toy_action;
+        ball_frame = 0;                     // Reset ball position
+        break;
+      case M0:
+        register_code(KC_LCTL);
+        tap_code(KC_K);
+        tap_code(KC_J);
+        unregister_code(KC_LCTL);
+        break;
+      case M1:
+        register_code(KC_LCTL);
+        register_code(KC_LSFT);
+        tap_code(KC_RBRC);
+        unregister_code(KC_LCTL);
+        unregister_code(KC_LSFT);
+        break;
+      case M2:
+        register_code(KC_LCTL);
+        register_code(KC_LSFT);
+        tap_code(KC_LBRC);
+        unregister_code(KC_LCTL);
+        unregister_code(KC_LSFT);
+        break;
+      case M3:
+        register_code(KC_LCTL);
+        tap_code(KC_K);
+        tap_code(KC_0);
+        unregister_code(KC_LCTL);
+        break;
+    }
   }
   return true;
 }
