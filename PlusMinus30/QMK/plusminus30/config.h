@@ -3,8 +3,11 @@
 
 #pragma once
 
-#define TAPPING_TERM 300
+#define TAPPING_TERM 250
 #define FORCE_NKRO
+
+#define BOOTMAGIC_ROW 0
+#define BOOTMAGIC_COLUMN 0
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
