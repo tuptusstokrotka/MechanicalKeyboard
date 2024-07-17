@@ -66,22 +66,22 @@ combo_t key_combos[] = {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_30(
+    [_BASE] = LAYOUT_basic(
         KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,    KC_Y,    KC_U,     KC_I,     KC_O,     KC_P,
         CTL_A,    SFT_S,    GUI_D,    ALT_F,    KC_G,    KC_H,    ALT_J,    GUI_K,    SFT_L,    CTL_SCLN,
         KC_Z,     KC_X,     KC_C,     KC_V,     L_SPACE, R_SPACE, KC_N,     KC_M,     KC_COMM,  KC_DOT
     ),
-    [_LEFT] = LAYOUT_30(
+    [_LEFT] = LAYOUT_basic(
         KC_1,     KC_2,     KC_3,     KC_4,     KC_5,    KC_6,    KC_7,     KC_8,     KC_9,     KC_0,
         KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC, KC_CIRC, KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,
         KC_PPLS,  KC_MINS,  KC_PAST,  KC_SLSH,  KC_TRNS, KC_TRNS, KC_LBRC,  KC_RBRC,  KC_LCBR,  KC_RCBR
     ),
-    [_RIGHT] = LAYOUT_30(
+    [_RIGHT] = LAYOUT_basic(
         KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,   KC_F6,   KC_F7,    KC_F8,    KC_F9,    KC_F10,
         KC_HOME,  KC_END,   KC_PGUP,  KC_PGDN,  KC_NO,   KC_NO,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,
         KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_TRNS, KC_TRNS, KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT
     ),
-    [_BOTH] = LAYOUT_30(
+    [_BOTH] = LAYOUT_basic(
         KC_NO,    KC_NO,    KC_NO,    L_DESKTOP,  L_MONITOR,  R_MONITOR,  R_DESKTOP,   KC_NO,     KC_NO,      KC_NO,
         M0,       M1,       KC_NO,    L_SNAP,     D_SNAP,     U_SNAP,     R_SNAP,      KC_NO,     M2,         M3,
         KC_NO,    KC_NO,    KC_NO,    KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_NO,     KC_NO,      KC_NO
