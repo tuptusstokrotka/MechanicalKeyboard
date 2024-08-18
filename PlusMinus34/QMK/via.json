@@ -1,10 +1,10 @@
 {
-    "name": "PlusMinus30",
-    "vendorId": "0xA059",
-    "productId": "0x4563",
+    "name": "PlusMinus34",
+    "vendorId": "0xB00B",
+    "productId": "0x5034",
     "matrix": {
         "cols": 10,
-        "rows": 3
+        "rows": 4
     },
     "layouts": {
         "keymap": [
@@ -37,12 +37,19 @@
                 "2,1",
                 "2,2",
                 "2,3",
-                {"c": "#cccccc "},"2,4",
+                "2,4",
                 "2,5",
-                {"c": "#aaaaaa "},"2,6",
+                "2,6",
                 "2,7",
                 "2,8",
                 "2,9"
+            ],
+
+            [
+                {"c": "#cccccc ","x": 3}, "3,3",
+                "3,4",
+                "3,5",
+                "3,6"
             ]
         ]
     }

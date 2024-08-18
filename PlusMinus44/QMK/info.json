@@ -1,7 +1,5 @@
 {
-    "manufacturer": "Julian Tarczynski",
-    "keyboard_name": "plusminus40",
-    "maintainer": "tuptusstokrotka",
+    "keyboard_name": "plusminus44",
     "bootloader": "caterina",
     "diode_direction": "COL2ROW",
     "features": {
@@ -13,11 +11,10 @@
         "rows": [ "D4", "B4", "F7", "B2", "C6", "B5", "B1", "B3" ]
     },
     "processor": "atmega32u4",
-    "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x4564",
-        "vid": "0xA059"
+        "pid": "0x5044",
+        "vid": "0xB00B"
     },
     "encoder": {
         "rotary": [

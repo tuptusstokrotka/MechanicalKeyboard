@@ -1,23 +1,20 @@
 {
-    "manufacturer": "Julian Tarczynski",
     "keyboard_name": "plusminus30",
-    "maintainer": "tuptusstokrotka",
     "bootloader": "caterina",
     "diode_direction": "ROW2COL",
     "features": {
-        "bootmagic": true,
         "extrakey": true
     },
     "matrix_pins": {
-        "cols": [ "B6", "B2", "B3", "B1", "F7", "F6", "F5", "E6", "D7", "D1"],
-        "rows": [ "D0", "D4", "C6" ]
+        "cols": [ "D1", "D7", "E6", "F5", "F6", "F7", "B1", "B3", "B2", "B6" ],
+        "rows": [ "C6", "D4", "D0", "B4" ]
+
     },
     "processor": "atmega32u4",
-    "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x4563",
-        "vid": "0xA059"
+        "pid": "0x5030",
+        "vid": "0xB00B"
     },
     "layouts": {
         "LAYOUT_basic": {
@@ -53,7 +50,12 @@
                 { "matrix": [2, 6], "x": 6, "y": 2 },
                 { "matrix": [2, 7], "x": 7, "y": 2 },
                 { "matrix": [2, 8], "x": 8, "y": 2 },
-                { "matrix": [2, 9], "x": 9, "y": 2 }
+                { "matrix": [2, 9], "x": 9, "y": 2 },
+
+                { "matrix": [3, 3], "x": 3, "y": 3 },
+                { "matrix": [3, 4], "x": 4, "y": 3 },
+                { "matrix": [3, 5], "x": 5, "y": 3 },
+                { "matrix": [3, 6], "x": 6, "y": 3 }
             ]
         }
     }
