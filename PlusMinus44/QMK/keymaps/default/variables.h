@@ -1,5 +1,4 @@
-// Copyright 2022 Julian Tarczynski
-// PlusMinus40 based on mochi40
+// PlusMinus44 based on mochi40
 #pragma once
 
 // Define Layers depends on L / R space press

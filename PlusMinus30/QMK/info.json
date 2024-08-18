@@ -1,4 +1,5 @@
 {
+    "manufacturer": "plusminus",
     "keyboard_name": "plusminus30",
     "bootloader": "caterina",
     "diode_direction": "ROW2COL",
