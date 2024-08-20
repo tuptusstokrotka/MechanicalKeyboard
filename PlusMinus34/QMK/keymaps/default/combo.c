@@ -1,4 +1,3 @@
-// PlusMinus44 based on mochi40
 #include QMK_KEYBOARD_H
 
 // _BASE layer Combos
