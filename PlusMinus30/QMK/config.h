@@ -1,6 +1,6 @@
 #pragma once
 
-#define TAPPING_TERM 250
+#define TAPPING_TERM 200
 #define FORCE_NKRO
 
 #define BOOTMAGIC_ROW 2
