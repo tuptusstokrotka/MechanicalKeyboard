@@ -1,0 +1,13 @@
+VIA_ENABLE 				= yes
+BOOTMAGIC_ENABLE 		= yes
+
+NKRO_ENABLE   			= yes
+ENCODER_ENABLE			= yes
+
+LTO_ENABLE 				= yes
+MOUSEKEY_ENABLE 		= yes
+EXTRAKEY_ENABLE 		= yes
+
+COMBO_ENABLE 			= no
+KEY_OVERRIDE_ENABLE 	= no
+OLED_ENABLE				= no

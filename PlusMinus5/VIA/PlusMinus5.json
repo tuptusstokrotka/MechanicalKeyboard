@@ -1,0 +1,15 @@
+{
+  "name": "PlusMinus5",
+  "vendorId": "0xB00B",
+  "productId": "0x5005",
+  "matrix": {
+    "cols": 3,
+    "rows": 2
+  },
+  "layouts": {
+    "keymap": [
+      ["0,0","0,1",{"c":"#aaaaaa"},"0,2\n\n\n\n\n\n\n\n\ne0"],
+      [{"c":"#cccccc"},"1,0","1,1",{"c":"#777777"},"1,2"]
+    ]
+  }
+}
