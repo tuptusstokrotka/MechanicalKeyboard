@@ -8,46 +8,48 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  /* _ONE
-   * ,--------------------.
-   * |   A  |   B  |   C  |
-   * |------+------+------|
-   * |   D  |   E  |   F  |
-   * `--------------------'
-   */
-
   /* MEDIA LAYER */
-  [_ONE] = LAYOUT_macro_pad(
-  KC_Q,       KC_W,       KC_E,
-  KC_R,       KC_T,       LT(_SELECT, KC_1)),
+  [_MEDIA] = LAYOUT_macro_pad(
+  KC_MPRV,    KC_MNXT,    KC_MPLY,
+  KC_PAUSE,   __x__,      LT(_SELECT, CUSTOM_0)),
 
   /* FLUX LAYER */
-  [_TWO] = LAYOUT_macro_pad(
-  KC_A,       KC_S,       KC_D,
-  KC_F,       KC_G,       LT(_SELECT, KC_2)),
+  [_FLUX] = LAYOUT_macro_pad(
+  FLUX_T_DN,  FLUX_T_UP,  KC_MPLY,
+  FLUX_B_DN,  FLUX_B_UP,  LT(_SELECT, CUSTOM_1)),
 
-  [_THREE] = LAYOUT_macro_pad(
-  KC_Z,       KC_X,       KC_C,
-  KC_V,       KC_B,       LT(_SELECT, KC_3)),
+  /* NAVIGATION */
+  [_NAVI] = LAYOUT_macro_pad(
+  KC_HOME,    KC_PGUP,    KC_MPLY,
+  KC_END,     KC_PGDN,    LT(_SELECT, __x__)),
 
+  /* BLANK */
   [_FOUR] = LAYOUT_macro_pad(
-  KC_1,       KC_2,       KC_3,
-  KC_4,       KC_5,       LT(_SELECT, KC_4)),
+  __x__,      __x__,      KC_MPLY,
+  __x__,      __x__,      LT(_SELECT, __x__)),
 
-  /* _SELECT
-   * ,--------------------.
-   * |  L1  |  L2  |      |
-   * |------+------+------|
-   * |  L3  |  L4  |      |
-   * `--------------------'
-   */
+  /* TOGGLE LAYERS */
   [_SELECT] = LAYOUT_macro_pad(
-  DF(_ONE),   DF(_TWO),   KC_C,
-  DF(_THREE), DF(_FOUR),  KC_TRNS),
+  DF(_MEDIA), DF(_FLUX),   __x__,
+  DF(_NAVI),  DF(_FOUR),  KC_TRNS),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // if (record->event.pressed){               // Key was pressed
-  // }
+  if (record->event.pressed){ // Key was pressed
+    switch(keycode){
+      case CUSTOM_0:{
+        register_code(KC_LGUI);
+        tap_code(KC_L);
+        unregister_code(KC_LGUI);
+        return true;  // Prevent KC_F13 from being sent
+      }
+      case CUSTOM_1:{
+        register_code(KC_LALT);
+        tap_code(KC_END);
+        unregister_code(KC_LALT);
+        return false;  // Prevent KC_F14 from being sent
+      }
+    }
+  }
   return true;
 }
