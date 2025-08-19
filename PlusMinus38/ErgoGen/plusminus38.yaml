@@ -1,0 +1,133 @@
+meta:
+  engine: 4.1.0
+points:
+  zones:
+    matrix:
+      anchor.shift: [50,-100] # Fix KiCad placement
+      columns:
+        pinky:
+          rows:
+            top.column_net:     C0
+            home.column_net:    C0
+            bottom.column_net:  C0
+        ring:
+          key.stagger:   0.50U
+          rows:
+            top.column_net:     C1
+            home.column_net:    C1
+            bottom.column_net:  C1
+        middle:
+          key.stagger: 0.25U
+          rows:
+            top.column_net:     C2
+            home.column_net:    C2
+            bottom.column_net:  C2
+
+        index:
+          key.stagger: -0.25U
+          rows:
+            top.column_net:     C3
+            home.column_net:    C3
+            bottom.column_net:  C3
+        inner:
+          rows:
+            top.column_net:     C4
+            home.column_net:    C4
+            bottom.column_net:  C4
+      rows:
+        bottom:
+          row_net: R2
+        home:
+          row_net: R1
+        top:
+          row_net: R0
+    thumb:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [-1U, -1U]
+      columns:
+        thumb_1:
+          key.name: thumb_1
+          rows:
+            home.column_net: C2
+            home.row_net:    R3
+        thumb_2:
+          key.name: thumb_2
+          rows:
+            home.column_net: C3
+            home.row_net:    R3
+        thumb_3:
+          key.name: thumb_3
+          rows:
+            home.column_net: C4
+            home.row_net:    R3
+outlines:
+  _raw:
+    - what: rectangle
+      where: true
+      asym: both
+      size: [1U,1U]
+  panel:
+    - what: outline
+      name: _raw
+      expand: 1.6
+    - what: rectangle
+      size: [1U, 1U]
+      where:
+        - ref: matrix_middle_bottom
+          shift: [0U, -1U]
+pcbs:
+  simple_split:
+    template: kicad8
+    outlines:
+      main:
+        outline: panel
+        layer: Edge.Cuts
+    footprints:
+      mcu:
+        what: ceoloide/mcu_supermini_nrf52840
+        where:
+          - ref: matrix_inner_home
+            shift: [0.0U, 0.7U]
+        params:
+          reversible: false
+          reverse_mount: false
+          only_required_jumpers: true
+          # Columns
+          P10: C0
+          P16: C1
+          P14: C2
+          P15: C3
+          P18: C4
+          # Rows
+          P6: R0
+          P7: R1
+          P8: R3
+          P9: R2
+      keys:
+        what: ceoloide/switch_mx
+        where: true
+        params:
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+          reversible: true
+          solder: true
+          hotswap: false
+          include_keycap: true
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      led:
+        what: ceoloide/led_sk6812mini-e
+        where:
+          ref: thumb_1
+          shift: [0, 0.5U+0.25U/2]
+        params:
+          reversible: true
+          P2: RAW
+          P4: RAW
