@@ -94,16 +94,18 @@ pcbs:
           reverse_mount: false
           only_required_jumpers: true
           # Columns
-          P10: C0
-          P16: C1
-          P14: C2
-          P15: C3
+          P4:  C0
+          P5:  C1
+          P6:  C2
+          P7:  C3
           P18: C4
           # Rows
-          P6: R0
-          P7: R1
-          P8: R3
-          P9: R2
+          P19: R0
+          P15: R1
+          P14: R2
+          P10: R3
+
+          P16: LED
       keys:
         what: ceoloide/switch_mx
         where: true
@@ -129,5 +131,5 @@ pcbs:
           shift: [0, 0.5U+0.25U/2]
         params:
           reversible: true
-          P2: RAW
-          P4: RAW
+          P2: "no_net"
+          P4: LED
