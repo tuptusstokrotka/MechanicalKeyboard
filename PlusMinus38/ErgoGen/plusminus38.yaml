@@ -133,3 +133,11 @@ pcbs:
           reversible: true
           P2: "no_net"
           P4: LED
+      reset:
+        what: ceoloide/power_switch_smd_side
+        where:
+          ref: matrix_index_top
+          shift: [0.25U, 0.5U]
+          rotate: 90
+        params:
+          reversible: true
