@@ -105,7 +105,7 @@ pcbs:
           P14: R2
           P10: R3
 
-          P16: LED
+          P16: LED0_IN
       keys:
         what: ceoloide/switch_mx
         where: true
@@ -124,15 +124,33 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -5]
-      led:
+      led0:
         what: ceoloide/led_sk6812mini-e
         where:
           ref: thumb_1
           shift: [0, 0.5U+0.25U/2]
         params:
           reversible: true
-          P2: "no_net"
-          P4: LED
+          P2: LED1_IN   # Data Out
+          P4: LED0_IN   # Data In
+      led1:
+        what: ceoloide/led_sk6812mini-e
+        where:
+          ref: thumb_1
+          shift: [0, 0.5U+0.25U/2]
+        params:
+          reversible: true
+          P2: LED2_IN   # Data Out
+          P4: LED1_IN   # Data In
+      led2:
+        what: ceoloide/led_sk6812mini-e
+        where:
+          ref: thumb_1
+          shift: [0, 0.5U+0.25U/2]
+        params:
+          reversible: true
+          P2: "no_net"  # Data Out
+          P4: LED2_IN   # Data In
       reset:
         what: ceoloide/power_switch_smd_side
         where:
