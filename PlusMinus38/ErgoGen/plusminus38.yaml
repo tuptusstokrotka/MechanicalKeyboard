@@ -128,7 +128,8 @@ pcbs:
         what: ceoloide/led_sk6812mini-e
         where:
           ref: thumb_1
-          shift: [0, 0.5U+0.25U/2]
+          shift: [5, 0.5U+0.25U/2]
+          rotate: -90
         params:
           reversible: true
           P2: LED1_IN   # Data Out
@@ -138,6 +139,7 @@ pcbs:
         where:
           ref: thumb_1
           shift: [0, 0.5U+0.25U/2]
+          rotate: -90
         params:
           reversible: true
           P2: LED2_IN   # Data Out
@@ -146,7 +148,8 @@ pcbs:
         what: ceoloide/led_sk6812mini-e
         where:
           ref: thumb_1
-          shift: [0, 0.5U+0.25U/2]
+          shift: [-5, 0.5U+0.25U/2]
+          rotate: -90
         params:
           reversible: true
           P2: "no_net"  # Data Out
